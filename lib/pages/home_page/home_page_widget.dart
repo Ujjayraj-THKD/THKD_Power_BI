@@ -50,10 +50,10 @@ class _HomePageWidgetState extends State<HomePageWidget> {
             children: [
               Container(
                 width: MediaQuery.sizeOf(context).width,
-                height: MediaQuery.sizeOf(context).height,
+                height: MediaQuery.sizeOf(context).height * 0.9,
                 child: custom_widgets.AdvancedWebView(
                   width: MediaQuery.sizeOf(context).width,
-                  height: MediaQuery.sizeOf(context).height,
+                  height: MediaQuery.sizeOf(context).height * 0.9,
                   url: 'https://www.youtube.com/',
                 ),
               ),
