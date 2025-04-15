@@ -45,17 +45,13 @@ class _HomePageWidgetState extends State<HomePageWidget> {
         backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
         body: SafeArea(
           top: true,
-          child: Column(
-            mainAxisSize: MainAxisSize.max,
-            children: [
-              FlutterFlowWebView(
-                content: 'https://chatgpt.com/',
-                bypass: false,
-                height: 500.0,
-                verticalScroll: false,
-                horizontalScroll: false,
-              ),
-            ],
+          child: FlutterFlowWebView(
+            content: 'https://flutter.dev',
+            bypass: true,
+            width: MediaQuery.sizeOf(context).width,
+            height: MediaQuery.sizeOf(context).height,
+            verticalScroll: true,
+            horizontalScroll: true,
           ),
         ),
       ),
