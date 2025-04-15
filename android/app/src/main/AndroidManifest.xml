@@ -3,6 +3,7 @@
   <application
     android:label="THKD-PowerBi"
     tools:replace="android:label"
+    android:usesCleartextTraffic="true"
     android:icon="@mipmap/ic_launcher"
     android:requestLegacyExternalStorage="true"
   >

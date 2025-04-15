@@ -25,32 +25,39 @@ class AdvancedWebView extends StatefulWidget {
 }
 
 class _AdvancedWebViewState extends State<AdvancedWebView> {
-  late final WebViewController _controller;
+  WebViewController? _controller;
 
   @override
   void initState() {
     super.initState();
+    final sanitizedUrl =
+        widget.url.startsWith('http') ? widget.url : 'https://${widget.url}';
+
     _controller = WebViewController()
       ..setJavaScriptMode(JavaScriptMode.unrestricted)
-      ..loadRequest(Uri.parse(widget.url));
+      ..loadRequest(Uri.parse(sanitizedUrl));
   }
 
   Future<bool> _handleBack() async {
-    if (await _controller.canGoBack()) {
-      _controller.goBack();
-      return false; // Don't pop the page
+    if (_controller != null && await _controller!.canGoBack()) {
+      _controller!.goBack();
+      return false;
     }
-    return true; // Pop the page
+    return true;
   }
 
   @override
   Widget build(BuildContext context) {
+    if (_controller == null) {
+      return const Center(child: CircularProgressIndicator());
+    }
+
     return WillPopScope(
       onWillPop: _handleBack,
       child: SizedBox(
         width: widget.width,
         height: widget.height,
-        child: WebViewWidget(controller: _controller),
+        child: WebViewWidget(controller: _controller!),
       ),
     );
   }
