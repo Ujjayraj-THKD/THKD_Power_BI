@@ -54,7 +54,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                 child: custom_widgets.AdvancedWebView(
                   width: MediaQuery.sizeOf(context).width,
                   height: MediaQuery.sizeOf(context).height,
-                  url: 'http://tmcdevsvr/git/',
+                  url: 'http://172.16.17.137/git/dash/tcare.php',
                 ),
               ),
             ],
