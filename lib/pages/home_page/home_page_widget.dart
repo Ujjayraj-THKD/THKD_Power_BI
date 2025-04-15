@@ -51,7 +51,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
             child: custom_widgets.AdvancedWebView(
               width: MediaQuery.sizeOf(context).width,
               height: MediaQuery.sizeOf(context).height,
-              url: 'http://tmcdevsvr/git/',
+              url: 'https://www.youtube.com/',
             ),
           ),
         ),

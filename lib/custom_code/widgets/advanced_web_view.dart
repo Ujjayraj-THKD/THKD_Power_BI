@@ -6,6 +6,8 @@ import 'package:flutter/material.dart';
 // Begin custom widget code
 // DO NOT REMOVE OR MODIFY THE CODE ABOVE!
 
+import 'index.dart'; // Imports other custom widgets
+
 import 'package:webview_flutter/webview_flutter.dart';
 
 /// basic webview with fuction no navigate forward and back using app back
