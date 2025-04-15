@@ -12,9 +12,13 @@ class AdvancedWebView extends StatefulWidget {
   const AdvancedWebView({
     Key? key,
     required this.url,
+    required this.width,
+    required this.height,
   }) : super(key: key);
 
   final String url;
+  final double width;
+  final double height;
 
   @override
   State<AdvancedWebView> createState() => _AdvancedWebViewState();
@@ -43,7 +47,11 @@ class _AdvancedWebViewState extends State<AdvancedWebView> {
   Widget build(BuildContext context) {
     return WillPopScope(
       onWillPop: _handleBack,
-      child: WebViewWidget(controller: _controller),
+      child: SizedBox(
+        width: widget.width,
+        height: widget.height,
+        child: WebViewWidget(controller: _controller),
+      ),
     );
   }
 }
