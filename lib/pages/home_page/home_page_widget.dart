@@ -49,8 +49,8 @@ class _HomePageWidgetState extends State<HomePageWidget> {
             mainAxisSize: MainAxisSize.max,
             children: [
               FlutterFlowWebView(
-                content: 'http://tmcdevsvr/git/',
-                bypass: true,
+                content: 'https://chatgpt.com/',
+                bypass: false,
                 height: 500.0,
                 verticalScroll: false,
                 horizontalScroll: false,
