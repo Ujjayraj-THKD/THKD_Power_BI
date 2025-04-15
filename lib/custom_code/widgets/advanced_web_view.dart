@@ -8,6 +8,8 @@ import 'package:flutter/material.dart';
 
 import 'package:webview_flutter/webview_flutter.dart';
 
+/// basic webview with fuction no navigate forward and back using app back
+/// buttion or gestures
 class AdvancedWebView extends StatefulWidget {
   const AdvancedWebView({
     Key? key,
