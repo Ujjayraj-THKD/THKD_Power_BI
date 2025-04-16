@@ -5,4 +5,3 @@ mipmap ic_launcher
 string app_name
 style LaunchTheme
 style NormalTheme
-xml network_security_config
