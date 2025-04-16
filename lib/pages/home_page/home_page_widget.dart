@@ -49,7 +49,8 @@ class _HomePageWidgetState extends State<HomePageWidget> {
             width: MediaQuery.sizeOf(context).width,
             child: custom_widgets.AdvancedWebView(
               width: MediaQuery.sizeOf(context).width,
-              url: 'http://tmcdevsvr/git/\'',
+              url:
+                  'https://app.powerbi.com/view?r=eyJrIjoiMmI5ZWYxMTAtMWRhYy00NDMyLTg5NGUtN2ExMjQ3NjZlODA1IiwidCI6IjYxMWZiYjgyLTgxMDQtNDlmMy05YWRhLWRhOTgwMmI4YWZkYSIsImMiOjEwfQ%3D%3D%22',
             ),
           ),
         ),
