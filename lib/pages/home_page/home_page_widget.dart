@@ -45,13 +45,35 @@ class _HomePageWidgetState extends State<HomePageWidget> {
         backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
         body: SafeArea(
           top: true,
-          child: Container(
-            width: MediaQuery.sizeOf(context).width,
-            child: custom_widgets.AdvancedWebView(
-              width: MediaQuery.sizeOf(context).width,
-              url:
-                  'https://app.powerbi.com/view?r=eyJrIjoiMmI5ZWYxMTAtMWRhYy00NDMyLTg5NGUtN2ExMjQ3NjZlODA1IiwidCI6IjYxMWZiYjgyLTgxMDQtNDlmMy05YWRhLWRhOTgwMmI4YWZkYSIsImMiOjEwfQ%3D%3D%22',
-            ),
+          child: Column(
+            mainAxisSize: MainAxisSize.max,
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+              Container(
+                width: MediaQuery.sizeOf(context).width,
+                height: MediaQuery.sizeOf(context).height * 0.83,
+                child: custom_widgets.AdvancedWebView(
+                  width: MediaQuery.sizeOf(context).width,
+                  height: MediaQuery.sizeOf(context).height * 0.83,
+                  url:
+                      'https://app.powerbi.com/view?r=eyJrIjoiMmI5ZWYxMTAtMWRhYy00NDMyLTg5NGUtN2ExMjQ3NjZlODA1IiwidCI6IjYxMWZiYjgyLTgxMDQtNDlmMy05YWRhLWRhOTgwMmI4YWZkYSIsImMiOjEwfQ%3D%3D%22',
+                ),
+              ),
+              Container(
+                width: MediaQuery.sizeOf(context).width,
+                height: 50.0,
+                decoration: BoxDecoration(
+                  color: Color(0xFFFF0000),
+                ),
+                child: Text(
+                  'Hello World',
+                  style: FlutterFlowTheme.of(context).bodyMedium.override(
+                        fontFamily: 'Inter',
+                        letterSpacing: 0.0,
+                      ),
+                ),
+              ),
+            ],
           ),
         ),
       ),
