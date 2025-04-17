@@ -7,11 +7,8 @@ import 'package:flutter/material.dart';
 // DO NOT REMOVE OR MODIFY THE CODE ABOVE!
 
 import 'index.dart'; // Imports other custom widgets
-
 import 'package:webview_flutter/webview_flutter.dart';
 
-/// basic webview with fuction no navigate forward and back using app back
-/// buttion or gestures
 class AdvancedWebView extends StatefulWidget {
   const AdvancedWebView({
     Key? key,
@@ -36,15 +33,28 @@ class _AdvancedWebViewState extends State<AdvancedWebView> {
     super.initState();
     _controller = WebViewController()
       ..setJavaScriptMode(JavaScriptMode.unrestricted)
+      ..setNavigationDelegate(
+        NavigationDelegate(
+          onPageFinished: (url) async {
+            // Inject meta tag to prevent zooming
+            await _controller.runJavaScript('''
+              var meta = document.createElement('meta');
+              meta.name = 'viewport';
+              meta.content = 'width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no';
+              document.getElementsByTagName('head')[0].appendChild(meta);
+            ''');
+          },
+        ),
+      )
       ..loadRequest(Uri.parse(widget.url));
   }
 
   Future<bool> _handleBack() async {
     if (await _controller.canGoBack()) {
       _controller.goBack();
-      return false; // Don't pop the page
+      return false;
     }
-    return true; // Pop the page
+    return true;
   }
 
   @override
