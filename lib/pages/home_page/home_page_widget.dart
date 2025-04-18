@@ -46,8 +46,8 @@ class _HomePageWidgetState extends State<HomePageWidget> {
         body: SafeArea(
           top: true,
           child: Transform.scale(
-            scaleX: 5.0,
-            scaleY: 5.0,
+            scaleX: 4.0,
+            scaleY: 4.0,
             child: Container(
               width: MediaQuery.sizeOf(context).width,
               height: MediaQuery.sizeOf(context).height,
