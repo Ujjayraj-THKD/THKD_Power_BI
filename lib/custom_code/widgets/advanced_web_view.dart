@@ -6,9 +6,7 @@ import 'package:flutter/material.dart';
 // Begin custom widget code
 // DO NOT REMOVE OR MODIFY THE CODE ABOVE!
 
-import '/custom_code/widgets/index.dart';
-import '/flutter_flow/custom_functions.dart';
-
+import 'index.dart'; // Imports other custom widgets
 import 'package:webview_flutter/webview_flutter.dart';
 
 class AdvancedWebView extends StatefulWidget {
@@ -38,17 +36,12 @@ class _AdvancedWebViewState extends State<AdvancedWebView> {
       ..setNavigationDelegate(
         NavigationDelegate(
           onPageFinished: (url) async {
+            // Inject meta tag to prevent zooming
             await _controller.runJavaScript('''
-              (function() {
-                var meta = document.createElement('meta');
-                meta.name = 'viewport';
-                meta.content = 'width=device-width, initial-scale=1.0, user-scalable=yes';
-                document.head.appendChild(meta);
-
-                var style = document.createElement('style');
-                style.innerHTML = "body { transform: scale(1.5); transform-origin: 0 0; overflow-y: scroll; height: calc(100vh / 1.5); }";
-                document.head.appendChild(style);
-              })();
+              var meta = document.createElement('meta');
+              meta.name = 'viewport';
+              meta.content = 'width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no';
+              document.getElementsByTagName('head')[0].appendChild(meta);
             ''');
           },
         ),
