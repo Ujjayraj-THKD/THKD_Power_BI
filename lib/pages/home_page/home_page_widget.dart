@@ -1,7 +1,6 @@
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/custom_code/widgets/index.dart' as custom_widgets;
-import 'dart:math' as math;
 import 'package:flutter/material.dart';
 import 'home_page_model.dart';
 export 'home_page_model.dart';
@@ -46,16 +45,13 @@ class _HomePageWidgetState extends State<HomePageWidget> {
         backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
         body: SafeArea(
           top: true,
-          child: Transform.rotate(
-            angle: 90.0 * (math.pi / 180),
-            child: Container(
+          child: Container(
+            width: MediaQuery.sizeOf(context).width,
+            height: MediaQuery.sizeOf(context).height,
+            child: custom_widgets.AdvancedWebView(
               width: MediaQuery.sizeOf(context).width,
               height: MediaQuery.sizeOf(context).height,
-              child: custom_widgets.AdvancedWebView(
-                width: MediaQuery.sizeOf(context).width,
-                height: MediaQuery.sizeOf(context).height,
-                url: 'https://www.google.com/',
-              ),
+              url: 'https://www.google.com/',
             ),
           ),
         ),
